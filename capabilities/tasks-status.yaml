@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Beatoven Composition API - Tasks
+  description: 'Beatoven.ai Composition API capability for polling asynchronous composition
+    task status. 1 operation. Lead operation: Beatoven Get Composition Task Status.
+    Self-contained Naftiko capability covering the task status surface.'
+  tags:
+    - Beatoven
+    - Tasks
+    - Music
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      BEATOVEN_API_KEY: BEATOVEN_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: tasks-status
+      baseUri: https://public-api.beatoven.ai
+      description: Beatoven composition task status consumed surface.
+      resources:
+        - name: tasks-task
+          path: /api/v1/tasks/{task_id}
+          operations:
+            - name: gettaskstatus
+              method: GET
+              description: Beatoven Get Composition Task Status
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: task_id
+                  in: path
+                  type: string
+                  description: Task identifier returned by the compose call.
+                  required: true
+      authentication:
+        type: bearer
+        value: '{{env.BEATOVEN_API_KEY}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: tasks-status-rest
+      port: 8080
+      description: REST adapter for the Beatoven task status endpoint.
+      resources:
+        - path: /v1/tasks/{task_id}
+          name: tasks-task
+          description: REST surface for composition task status.
+          operations:
+            - method: GET
+              name: gettaskstatus
+              description: Beatoven Get Composition Task Status
+              call: tasks-status.gettaskstatus
+              with:
+                task_id: rest.path.task_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: tasks-status-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter exposing the Beatoven task-status poll as a tool.
+      tools:
+        - name: beatoven-get-task-status
+          description: Poll a Beatoven composition task for status and asset URLs.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: tasks-status.gettaskstatus
+          with:
+            task_id: tools.task_id
+          outputParameters:
+            - type: object
+              mapping: $.

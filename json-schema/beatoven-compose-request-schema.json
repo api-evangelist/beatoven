@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beatoven/main/json-schema/beatoven-compose-request-schema.json",
+  "title": "Beatoven Compose Request",
+  "description": "Request body for POST /api/v1/tracks/compose.",
+  "type": "object",
+  "required": ["prompt"],
+  "properties": {
+    "prompt": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "Natural language description of the desired track."
+        }
+      }
+    },
+    "format": {
+      "type": "string",
+      "enum": ["mp3", "aac", "wav"],
+      "default": "wav",
+      "description": "Audio container of the rendered track."
+    },
+    "looping": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, bias the composition toward a loopable structure."
+    }
+  }
+}

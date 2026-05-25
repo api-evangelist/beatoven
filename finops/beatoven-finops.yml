@@ -1,0 +1,88 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Beatoven.ai
+providerId: beatoven
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - AI
+  - Music
+description: >
+  FOCUS-aligned FinOps definition for Beatoven.ai. Two distinct billing
+  surfaces - a user-seat subscription billing for the web product
+  (Creator, Visionary) plus credit-metered downloadable minutes
+  (Pay-as-You-Go), and a contract-priced enterprise billing for the
+  public Composition API.
+sources:
+  - https://www.beatoven.ai/pricing
+  - https://www.beatoven.ai/api
+  - https://github.com/Beatoven/public-api
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Beatoven.ai
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Mixed
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Adjustment
+  primaryUnit: minute
+  secondaryUnits:
+    - generation
+    - seat
+    - credit
+focusColumns:
+  ServiceName: Beatoven.ai
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Beatoven.ai
+  PublisherName: Beatoven.ai
+  InvoiceIssuerName: Beatoven.ai
+  PricingCategory: Mixed
+  PricingUnit: Minute
+  BillingCurrency: USD
+meters:
+  - name: download_minutes
+    unit: minute
+    aggregation: sum
+    dimensions:
+      - plan
+      - user
+      - format
+    description: Minutes of audio downloaded across Maestro Music, Maestro SFX, and Composer models.
+  - name: generations
+    unit: generation
+    aggregation: count
+    dimensions:
+      - model
+      - user
+    description: Count of composition or SFX generations submitted.
+  - name: seat_subscription
+    unit: seat
+    aggregation: count
+    dimensions:
+      - plan
+      - billing_period
+    description: Recurring per-user seat charges for Creator and Visionary plans.
+  - name: payg_credits
+    unit: credit
+    aggregation: sum
+    dimensions:
+      - user
+    description: Pre-purchased Pay-as-You-Go credits ($3/minute) drawn down at download time.
+recommendations:
+  - For high-volume content pipelines, contact hello@beatoven.ai to negotiate API contract pricing rather than scaling Pay-as-You-Go.
+  - Track downloaded minutes by format (mp3/aac/wav) to allocate cost to downstream content properties.
+  - Annual billing on Creator and Visionary saves ~17% versus monthly (2 free months).

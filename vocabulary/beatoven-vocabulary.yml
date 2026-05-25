@@ -1,0 +1,48 @@
+name: Beatoven Vocabulary
+description: Operational and capability vocabulary for the Beatoven.ai Composition API.
+provider: Beatoven.ai
+providerId: beatoven
+version: '0.1'
+created: '2026-05-24'
+modified: '2026-05-24'
+domains:
+  - id: composition
+    label: Music Composition
+    description: Generating instrumental tracks from natural language prompts.
+    terms:
+      - Track
+      - Prompt
+      - Stem
+      - Master Mix
+      - Loop
+      - Format
+  - id: tasks
+    label: Asynchronous Task Lifecycle
+    description: States for an in-flight composition task.
+    terms:
+      - composing
+      - running
+      - composed
+      - started
+  - id: stems
+    label: Track Stems
+    description: Individually rendered instrument layers within a composed track.
+    terms:
+      - bass
+      - chords
+      - melody
+      - percussion
+  - id: licensing
+    label: Licensing
+    description: Commercial usage rights for generated music.
+    terms:
+      - Royalty-Free
+      - Non-Exclusive Perpetual License
+      - Fairly Trained
+      - Commercial Use
+classifications:
+  - name: AI Music Generation
+  - name: Generative Audio
+  - name: Text-to-Music
+  - name: Text-to-SFX
+  - name: Royalty-Free Music

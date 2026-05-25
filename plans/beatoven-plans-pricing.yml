@@ -1,0 +1,173 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Beatoven.ai
+providerId: beatoven
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - AI
+  - Music
+  - Royalty-Free
+  - Generative Audio
+description: 'Subscription and pay-as-you-go plans for Beatoven.ai. Plans cover the
+  end-user web product (Trial, Creator, Visionary, Pay-as-You-Go). API access is
+  granted on request via hello@beatoven.ai.'
+sources:
+  - https://www.beatoven.ai/pricing
+  - https://www.beatoven.ai/api
+plans:
+  - id: beatoven-trial
+    name: Trial
+    type: free
+    description: Free entry-level plan for evaluating Beatoven's Maestro models.
+    entries:
+      - label: Composer model generations
+        name: composer_generations
+        type: included
+        metric: generations
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+      - label: Maestro Music generations
+        name: maestro_music_generations
+        type: included
+        metric: generations
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+      - label: Maestro SFX generations
+        name: maestro_sfx_generations
+        type: included
+        metric: generations
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+    restrictions:
+      - Cannot resell, register, or distribute generated tracks on streaming platforms.
+  - id: beatoven-creator
+    name: Creator
+    type: subscription
+    description: For creators producing 2-6 videos per month. Unlimited generations and 30 minutes of downloads across all models.
+    entries:
+      - label: Monthly subscription
+        name: subscription_monthly
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '10.00'
+        userMultiplied: true
+      - label: Yearly subscription
+        name: subscription_yearly
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '100.00'
+        userMultiplied: true
+      - label: Downloads
+        name: downloads_minutes
+        type: included
+        metric: minutes
+        limit: 30
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+    features:
+      - Unlimited generations on all models
+      - Advanced track editing
+      - Exclusive music license
+  - id: beatoven-visionary
+    name: Visionary
+    type: subscription
+    description: For creators producing 10+ videos per month. Unlimited generations and 60 minutes of downloads across all models.
+    entries:
+      - label: Monthly subscription
+        name: subscription_monthly
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '20.00'
+        userMultiplied: true
+      - label: Yearly subscription
+        name: subscription_yearly
+        type: subscription
+        metric: user
+        limit: 1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '200.00'
+        userMultiplied: true
+      - label: Downloads
+        name: downloads_minutes
+        type: included
+        metric: minutes
+        limit: 60
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: true
+    features:
+      - Unlimited generations on all models
+      - Advanced track editing
+      - Exclusive music license
+  - id: beatoven-payg
+    name: Pay-as-You-Go
+    type: usage-based
+    description: Credit-based plan billed per minute of downloaded audio.
+    entries:
+      - label: Per minute
+        name: per_minute
+        type: metered
+        metric: minutes
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: false
+    features:
+      - Unlimited generations while credits are active
+      - Exclusive music license on downloads
+  - id: beatoven-api
+    name: Public API
+    type: enterprise
+    description: REST access to the Beatoven Composition API. Pricing and quotas are issued per-customer; sign up at sync.beatoven.ai/apiDashboard or contact hello@beatoven.ai.
+    entries:
+      - label: API access (contact sales)
+        name: api_access
+        type: contact
+        metric: contract
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: contact
+        userMultiplied: false
+    features:
+      - Composition API (text-to-music)
+      - Maestro SFX API
+      - Stems delivery (bass, chords, melody, percussion)
+      - Make.com integration

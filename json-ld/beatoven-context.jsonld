@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "beatoven": "https://public-api.beatoven.ai/api/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Track": {
+      "@id": "beatoven:Track",
+      "@context": {
+        "track_id": { "@id": "beatoven:Track/id", "@type": "xsd:string" },
+        "project_id": { "@id": "beatoven:Track/projectId", "@type": "xsd:string" },
+        "version": { "@id": "beatoven:Track/version", "@type": "xsd:integer" },
+        "track_url": { "@id": "beatoven:Track/audioUrl", "@type": "xsd:anyURI" },
+        "stems_url": { "@id": "beatoven:Track/stems" },
+        "prompt": { "@id": "beatoven:Track/prompt" }
+      }
+    },
+
+    "Prompt": {
+      "@id": "beatoven:Prompt",
+      "@context": {
+        "text": { "@id": "beatoven:Prompt/text", "@type": "xsd:string" }
+      }
+    },
+
+    "Stems": {
+      "@id": "beatoven:Stems",
+      "@context": {
+        "bass": { "@id": "beatoven:Stems/bass", "@type": "xsd:anyURI" },
+        "chords": { "@id": "beatoven:Stems/chords", "@type": "xsd:anyURI" },
+        "melody": { "@id": "beatoven:Stems/melody", "@type": "xsd:anyURI" },
+        "percussion": { "@id": "beatoven:Stems/percussion", "@type": "xsd:anyURI" }
+      }
+    },
+
+    "Task": {
+      "@id": "beatoven:Task",
+      "@context": {
+        "task_id": { "@id": "beatoven:Task/id", "@type": "xsd:string" },
+        "status": { "@id": "beatoven:Task/status", "@type": "xsd:string" },
+        "meta": { "@id": "beatoven:Task/meta" }
+      }
+    }
+  }
+}

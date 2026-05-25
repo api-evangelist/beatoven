@@ -1,0 +1,172 @@
+aid: beatoven
+name: Beatoven.ai
+url: https://raw.githubusercontent.com/api-evangelist/beatoven/refs/heads/main/apis.yml
+description: >-
+  Beatoven.ai is an Indian generative-music startup (Bengaluru, founded 2021)
+  building text-to-music and text-to-sound-effects models for video creators,
+  podcasters, game developers, and brands. Its Maestro Music and Maestro SFX
+  models render royalty-free background tracks and foley from natural-language
+  prompts, with downloads delivered as mp3, aac, or wav plus separately
+  rendered stems (bass, chords, melody, percussion). Beatoven is Fairly
+  Trained certified - musicians whose work appears in the training corpus
+  receive equitable compensation. The company exposes a public REST
+  Composition API (public-api.beatoven.ai) plus an open-source Python SDK
+  (github.com/Beatoven/public-api), a Make.com integration, and a self-serve
+  API dashboard. The company has raised an ~$1.3M pre-Series A led by
+  Capital 2B and IvyCap Ventures, claims 2M+ creators and 15M+ tracks
+  generated, and reports 96% of its revenue from international markets.
+kind: contract
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI
+  - Artificial Intelligence
+  - Music
+  - Music Generation
+  - Generative Audio
+  - Text To Music
+  - Text To SFX
+  - Royalty-Free Music
+  - Background Music
+  - Video Creators
+  - Podcasts
+  - Stems
+  - Fairly Trained
+  - India
+created: '2026-05-24'
+modified: '2026-05-24'
+specificationVersion: '0.20'
+apis:
+  - aid: beatoven:beatoven-composition-api
+    name: Beatoven Composition API
+    description: >-
+      Asynchronous REST API for composing tracks from natural-language prompts.
+      POST a prompt to /api/v1/tracks/compose to receive a task_id, then poll
+      GET /api/v1/tasks/{task_id} until status is "composed". The completed
+      response includes a download URL for the master mix and separate URLs
+      for the bass, chords, melody, and percussion stems. Supports mp3, aac,
+      and wav output and an optional looping flag for loopable structure.
+      Authentication is HTTP Bearer with an API key issued via
+      sync.beatoven.ai/apiDashboard or by emailing hello@beatoven.ai.
+    humanURL: https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md
+    baseURL: https://public-api.beatoven.ai
+    tags:
+      - Music
+      - Composition
+      - Tracks
+      - Stems
+      - Text To Music
+    properties:
+      - url: https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md
+        type: Documentation
+      - url: https://github.com/Beatoven/public-api/blob/main/docs/api-spec-old.md
+        name: Legacy API Spec (deprecated)
+        type: Documentation
+      - url: https://www.beatoven.ai/api
+        name: Beatoven API product page
+        type: Documentation
+      - url: openapi/beatoven-composition-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/beatoven-track-schema.json
+        type: JSONSchema
+      - url: json-schema/beatoven-compose-request-schema.json
+        type: JSONSchema
+      - url: json-ld/beatoven-context.jsonld
+        type: JSONLD
+      - url: rules/beatoven-composition-rules.yml
+        type: SpectralRules
+      - url: examples/beatoven-compose-request-example.json
+        type: Examples
+      - url: examples/beatoven-compose-response-example.json
+        type: Examples
+      - url: examples/beatoven-task-status-response-example.json
+        type: Examples
+      - url: capabilities/tracks-compose.yaml
+        type: NaftikoCapability
+      - url: capabilities/tasks-status.yaml
+        type: NaftikoCapability
+      - url: https://github.com/Beatoven/public-api
+        name: Beatoven public-api GitHub repo
+        type: SourceCode
+      - url: https://github.com/Beatoven/public-api/tree/main/sdk
+        name: Python SDK
+        type: SDK
+      - url: https://github.com/Beatoven/public-api/blob/main/examples/compose.py
+        name: Python compose example
+        type: CodeExamples
+      - url: https://apps.make.com/beatoven-ai
+        name: Make.com integration
+        type: Integration
+      - url: https://www.beatoven.ai/blog/beatoven-ai-is-now-live-on-make-com-here-is-how-to-use-our-api/
+        name: Beatoven on Make.com - how to use the API
+        type: BlogPost
+      - url: https://www.beatoven.ai/blog/introducing-beatoven-ai-sdk/
+        name: Introducing the Beatoven SDK
+        type: BlogPost
+common:
+  - type: Portal
+    url: https://www.beatoven.ai
+  - type: Documentation
+    url: https://www.beatoven.ai/api
+  - type: Documentation
+    url: https://github.com/Beatoven/public-api
+  - type: GettingStarted
+    url: https://sync.beatoven.ai/apiDashboard
+  - type: SignUp
+    url: https://sync.beatoven.ai/
+  - type: SignUp
+    name: API Dashboard
+    url: https://sync.beatoven.ai/apiDashboard
+  - type: GitHubOrganization
+    url: https://github.com/Beatoven
+  - type: SDK
+    name: Python SDK
+    url: https://github.com/Beatoven/public-api/tree/main/sdk
+  - type: CodeExamples
+    url: https://github.com/Beatoven/public-api/tree/main/examples
+  - type: Integration
+    name: Make.com
+    url: https://apps.make.com/beatoven-ai
+  - type: Blog
+    url: https://www.beatoven.ai/blog
+  - type: Pricing
+    url: https://www.beatoven.ai/pricing
+  - type: Plans
+    url: plans/beatoven-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/beatoven-rate-limits.yml
+  - type: FinOps
+    url: finops/beatoven-finops.yml
+  - type: Artists
+    url: https://www.beatoven.ai/artists
+  - type: TermsOfService
+    url: https://www.beatoven.ai/tos
+  - type: PrivacyPolicy
+    url: https://www.beatoven.ai/privacy
+  - type: Support
+    name: hello@beatoven.ai
+    url: mailto:hello@beatoven.ai
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/beatoven-ai
+  - type: Twitter
+    url: https://twitter.com/beatoven_ai
+  - type: Features
+    data:
+      - Maestro Music - text-to-music generation rendered as mp3, aac, or wav
+      - Maestro SFX - text-to-sound-effects generation
+      - Stems delivery on every track - bass, chords, melody, and percussion as separate audio files
+      - Asynchronous task-based REST API with status polling (composing / running / composed)
+      - Optional looping flag for loopable backgrounds
+      - Bearer-token authentication, single endpoint surface (POST /api/v1/tracks/compose, GET /api/v1/tasks/{task_id})
+      - Open-source Python SDK (pip install via git+ subdirectory) with async/await client
+      - Make.com integration - Create and Compose Track, Composition Status, Make an API Call modules
+      - Royalty-free, non-exclusive perpetual commercial license on downloads
+      - Fairly Trained certification - musicians in the training set receive compensation
+      - Web product tiers (Trial, Creator $10/mo, Visionary $20/mo) and Pay-as-You-Go at $3/minute
+      - 2M+ creators, 15M+ tracks generated, 96% revenue from international markets
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com

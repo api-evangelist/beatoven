@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/beatoven/main/json-schema/beatoven-track-schema.json",
+  "title": "Beatoven Track",
+  "description": "A composition task and its rendered audio assets from the Beatoven Composition API.",
+  "type": "object",
+  "required": ["status"],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["started", "composing", "running", "composed"],
+      "description": "Current state of the composition task."
+    },
+    "task_id": {
+      "type": "string",
+      "description": "Identifier of the asynchronous composition task."
+    },
+    "meta": {
+      "type": "object",
+      "description": "Track metadata, present once status is 'composed'.",
+      "properties": {
+        "project_id": { "type": "string" },
+        "track_id": { "type": "string" },
+        "prompt": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" }
+          }
+        },
+        "version": { "type": "integer" },
+        "track_url": { "type": "string", "format": "uri", "description": "URL to download the rendered master mix." },
+        "stems_url": {
+          "type": "object",
+          "description": "URLs for individual rendered stems.",
+          "properties": {
+            "bass": { "type": "string", "format": "uri" },
+            "chords": { "type": "string", "format": "uri" },
+            "melody": { "type": "string", "format": "uri" },
+            "percussion": { "type": "string", "format": "uri" }
+          }
+        }
+      }
+    }
+  }
+}

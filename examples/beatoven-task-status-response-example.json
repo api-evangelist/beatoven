@@ -1,0 +1,18 @@
+{
+  "status": "composed",
+  "meta": {
+    "project_id": "3ade3151-372d-4ac8-b1ef-866a67ef0875",
+    "track_id": "ccb84650-7b4a-4d00-9f80-8a6427ca21aa",
+    "prompt": {
+      "text": "30 seconds peaceful lo-fi chill hop track"
+    },
+    "version": 1,
+    "track_url": "https://cdn.beatoven.ai/tracks/example.wav",
+    "stems_url": {
+      "bass": "https://cdn.beatoven.ai/stems/bass.wav",
+      "chords": "https://cdn.beatoven.ai/stems/chords.wav",
+      "melody": "https://cdn.beatoven.ai/stems/melody.wav",
+      "percussion": "https://cdn.beatoven.ai/stems/percussion.wav"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+extends:
+  - spectral:oas
+formats:
+  - oas3
+rules:
+  beatoven-info-contact:
+    description: All Beatoven specs must include contact info.
+    given: $.info
+    severity: error
+    then:
+      field: contact
+      function: truthy
+  beatoven-info-license:
+    description: All Beatoven specs must declare a license.
+    given: $.info
+    severity: error
+    then:
+      field: license
+      function: truthy
+  beatoven-operation-summary-title-case:
+    description: Operation summaries must use Title Case.
+    given: $.paths.*[get,post,put,patch,delete].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][A-Za-z0-9]*)(\s[A-Z][A-Za-z0-9]*)*$'
+  beatoven-bearer-security:
+    description: Beatoven endpoints require HTTP Bearer security.
+    given: $.components.securitySchemes
+    severity: error
+    then:
+      field: BearerAuth
+      function: truthy
+  beatoven-path-prefix:
+    description: All Beatoven paths must be under /api/v1.
+    given: $.paths
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/api/v1/'

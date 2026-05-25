@@ -1,0 +1,55 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Beatoven.ai
+providerId: beatoven
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - AI
+  - Music
+  - Rate Limiting
+  - Quotas
+description: >
+  Beatoven.ai does not publicly document per-API request, concurrency, or
+  token-bucket rate-limit policies for the public Composition API. Limits
+  are issued per-customer when the API key is provisioned; contact
+  hello@beatoven.ai for the quota assigned to your key. The web product
+  enforces downloadable-minute quotas per subscription plan.
+sources:
+  - https://www.beatoven.ai/api
+  - https://www.beatoven.ai/pricing
+  - https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md
+algorithm: undocumented
+responseCodes:
+  badRequest: 400
+  unauthorized: 401
+  serverError: 500
+notes:
+  - The public API spec on GitHub documents 400, 401, and 500 response codes but does not document a 429 throttling response.
+  - Composition is asynchronous; clients should poll GET /api/v1/tasks/{task_id} rather than retry POST /api/v1/tracks/compose.
+quotas:
+  - tier: Trial
+    scope: web
+    downloadsMinutes: 0
+    generations:
+      composer: 1/month
+      maestroMusic: 1/month
+      maestroSfx: 1/month
+  - tier: Creator
+    scope: web
+    downloadsMinutes: 30/month
+    generations: unlimited
+  - tier: Visionary
+    scope: web
+    downloadsMinutes: 60/month
+    generations: unlimited
+  - tier: Pay-as-You-Go
+    scope: web
+    downloadsMinutes: credit-metered ($3/minute)
+    generations: unlimited (while credits active)
+  - tier: API
+    scope: api
+    downloadsMinutes: contract
+    generations: contract

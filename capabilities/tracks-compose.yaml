@@ -1,0 +1,81 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Beatoven Composition API - Tracks
+  description: 'Beatoven.ai Composition API capability for submitting text-to-music
+    composition requests. 1 operation. Lead operation: Beatoven Compose A Track From
+    A Prompt. Self-contained Naftiko capability covering the track composition surface.'
+  tags:
+    - Beatoven
+    - Tracks
+    - Music
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+  - namespace: env
+    keys:
+      BEATOVEN_API_KEY: BEATOVEN_API_KEY
+capability:
+  consumes:
+    - type: http
+      namespace: tracks-compose
+      baseUri: https://public-api.beatoven.ai
+      description: Beatoven track composition consumed surface.
+      resources:
+        - name: tracks-compose
+          path: /api/v1/tracks/compose
+          operations:
+            - name: composetrack
+              method: POST
+              description: Beatoven Compose A Track From A Prompt
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  description: JSON request body containing prompt, format, looping.
+                  required: true
+      authentication:
+        type: bearer
+        value: '{{env.BEATOVEN_API_KEY}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: tracks-compose-rest
+      port: 8080
+      description: REST adapter for the Beatoven Composition API.
+      resources:
+        - path: /v1/tracks/compose
+          name: tracks-compose
+          description: REST surface for track composition.
+          operations:
+            - method: POST
+              name: composetrack
+              description: Beatoven Compose A Track From A Prompt
+              call: tracks-compose.composetrack
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: tracks-compose-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Beatoven Composition - exposes the compose tool.
+      tools:
+        - name: beatoven-compose-track
+          description: Compose a Beatoven track from a natural language prompt.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: tracks-compose.composetrack
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
