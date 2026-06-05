@@ -2,19 +2,15 @@ aid: beatoven
 name: Beatoven.ai
 url: https://raw.githubusercontent.com/api-evangelist/beatoven/refs/heads/main/apis.yml
 description: >-
-  Beatoven.ai is an Indian generative-music startup (Bengaluru, founded 2021)
-  building text-to-music and text-to-sound-effects models for video creators,
-  podcasters, game developers, and brands. Its Maestro Music and Maestro SFX
-  models render royalty-free background tracks and foley from natural-language
-  prompts, with downloads delivered as mp3, aac, or wav plus separately
-  rendered stems (bass, chords, melody, percussion). Beatoven is Fairly
-  Trained certified - musicians whose work appears in the training corpus
-  receive equitable compensation. The company exposes a public REST
-  Composition API (public-api.beatoven.ai) plus an open-source Python SDK
-  (github.com/Beatoven/public-api), a Make.com integration, and a self-serve
-  API dashboard. The company has raised an ~$1.3M pre-Series A led by
-  Capital 2B and IvyCap Ventures, claims 2M+ creators and 15M+ tracks
-  generated, and reports 96% of its revenue from international markets.
+  Beatoven.ai is an Indian generative-music startup (Bengaluru, founded 2021) building text-to-music and
+  text-to-sound-effects models for video creators, podcasters, game developers, and brands. Its Maestro Music and
+  Maestro SFX models render royalty-free background tracks and foley from natural-language prompts, with downloads
+  delivered as mp3, aac, or wav plus separately rendered stems (bass, chords, melody, percussion). Beatoven is Fairly
+  Trained certified - musicians whose work appears in the training corpus receive equitable compensation. The company
+  exposes a public REST Composition API (public-api.beatoven.ai) plus an open-source Python SDK
+  (github.com/Beatoven/public-api), a Make.com integration, and a self-serve API dashboard. The company has raised an
+  ~$1.3M pre-Series A led by Capital 2B and IvyCap Ventures, claims 2M+ creators and 15M+ tracks generated, and reports
+  96% of its revenue from international markets.
 kind: contract
 type: Index
 position: Provider
@@ -42,14 +38,11 @@ apis:
   - aid: beatoven:beatoven-composition-api
     name: Beatoven Composition API
     description: >-
-      Asynchronous REST API for composing tracks from natural-language prompts.
-      POST a prompt to /api/v1/tracks/compose to receive a task_id, then poll
-      GET /api/v1/tasks/{task_id} until status is "composed". The completed
-      response includes a download URL for the master mix and separate URLs
-      for the bass, chords, melody, and percussion stems. Supports mp3, aac,
-      and wav output and an optional looping flag for loopable structure.
-      Authentication is HTTP Bearer with an API key issued via
-      sync.beatoven.ai/apiDashboard or by emailing hello@beatoven.ai.
+      Asynchronous REST API for composing tracks from natural-language prompts. POST a prompt to /api/v1/tracks/compose
+      to receive a task_id, then poll GET /api/v1/tasks/{task_id} until status is "composed". The completed response
+      includes a download URL for the master mix and separate URLs for the bass, chords, melody, and percussion stems.
+      Supports mp3, aac, and wav output and an optional looping flag for loopable structure. Authentication is HTTP
+      Bearer with an API key issued via sync.beatoven.ai/apiDashboard or by emailing hello@beatoven.ai.
     humanURL: https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md
     baseURL: https://public-api.beatoven.ai
     tags:
@@ -83,10 +76,6 @@ apis:
         type: Examples
       - url: examples/beatoven-task-status-response-example.json
         type: Examples
-      - url: capabilities/tracks-compose.yaml
-        type: NaftikoCapability
-      - url: capabilities/tasks-status.yaml
-        type: NaftikoCapability
       - url: https://github.com/Beatoven/public-api
         name: Beatoven public-api GitHub repo
         type: SourceCode
