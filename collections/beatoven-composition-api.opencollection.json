@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Beatoven Composition API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tracks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Compose A Track From A Prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.beatoven.ai/api/v1/tracks/compose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start an asynchronous track composition from a text prompt. Returns a task_id that can be polled at /api/v1/tasks/{task_id} until the track is composed.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Composition Task Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-api.beatoven.ai/api/v1/tasks/:task_id",
+            "params": [
+              {
+                "name": "task_id",
+                "value": "",
+                "type": "path",
+                "description": "Task identifier returned by POST /api/v1/tracks/compose."
+              }
+            ]
+          },
+          "docs": "Retrieve the current status of an asynchronous composition task. While the task is queued the status is \"composing\", once execution begins it is \"running\", and once finished it is \"composed\" and the response includes URLs for the master track and individual stems.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
