@@ -81,13 +81,13 @@ apis:
         type: SourceCode
       - url: https://github.com/Beatoven/public-api/tree/main/sdk
         name: Python SDK
-        type: SDK
+        type: SDKs
       - url: https://github.com/Beatoven/public-api/blob/main/examples/compose.py
         name: Python compose example
         type: CodeExamples
       - url: https://apps.make.com/beatoven-ai
         name: Make.com integration
-        type: Integration
+        type: Integrations
       - url: https://www.beatoven.ai/blog/beatoven-ai-is-now-live-on-make-com-here-is-how-to-use-our-api/
         name: Beatoven on Make.com - how to use the API
         type: BlogPost
@@ -103,19 +103,19 @@ common:
     url: https://github.com/Beatoven/public-api
   - type: GettingStarted
     url: https://sync.beatoven.ai/apiDashboard
-  - type: SignUp
+  - type: Signup
     url: https://sync.beatoven.ai/
-  - type: SignUp
+  - type: Signup
     name: API Dashboard
     url: https://sync.beatoven.ai/apiDashboard
   - type: GitHubOrganization
     url: https://github.com/Beatoven
-  - type: SDK
+  - type: SDKs
     name: Python SDK
     url: https://github.com/Beatoven/public-api/tree/main/sdk
   - type: CodeExamples
     url: https://github.com/Beatoven/public-api/tree/main/examples
-  - type: Integration
+  - type: Integrations
     name: Make.com
     url: https://apps.make.com/beatoven-ai
   - type: Blog
