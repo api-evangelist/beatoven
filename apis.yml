@@ -95,6 +95,10 @@ apis:
         name: Introducing the Beatoven SDK
         type: BlogPost
 common:
+  - type: DomainSecurity
+    url: security/beatoven-domain-security.yml
+  - type: Authentication
+    url: authentication/beatoven-authentication.yml
   - type: Portal
     url: https://www.beatoven.ai
   - type: Documentation

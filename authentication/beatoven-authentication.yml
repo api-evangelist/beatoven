@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/beatoven-composition-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: Beatoven API token, issued by hello@beatoven.ai or from the API dashboard.
+  sources:
+  - openapi/beatoven-composition-api-openapi.yml
