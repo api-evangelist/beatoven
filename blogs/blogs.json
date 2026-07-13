@@ -9,6 +9,13 @@
       "method": "feed"
     },
     {
+      "source": "https://apps.make.com/beatoven-ai",
+      "feed_url": "https://apps.make.com/beatoven-ai",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
       "source": "https://www.beatoven.ai/blog/beatoven-ai-is-now-live-on-make-com-here-is-how-to-use-our-api/",
       "feed_url": "https://www.beatoven.ai/blog/feed/",
       "title": "",
@@ -21,15 +28,8 @@
       "title": "",
       "saved": 0,
       "method": "discovered"
-    },
-    {
-      "source": "https://apps.make.com/beatoven-ai",
-      "feed_url": "https://apps.make.com/beatoven-ai",
-      "title": "",
-      "saved": 0,
-      "method": "none"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 10,
+  "fetched": "2026-07-11T11:50:51Z"
 }
