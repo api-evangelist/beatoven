@@ -95,6 +95,8 @@ apis:
         name: Introducing the Beatoven SDK
         type: BlogPost
 common:
+  - type: AgenticAccess
+    url: agentic-access/beatoven-agentic-access.yml
   - type: DomainSecurity
     url: security/beatoven-domain-security.yml
   - type: Authentication
