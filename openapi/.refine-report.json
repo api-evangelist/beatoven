@@ -1,0 +1,16 @@
+{
+  "provider": "beatoven",
+  "sources": [
+    "beatoven-tasks-api-openapi.yml",
+    "beatoven-tracks-api-openapi.yml"
+  ],
+  "outputs": [
+    "beatoven-tasks-api-openapi.yml",
+    "beatoven-tracks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
