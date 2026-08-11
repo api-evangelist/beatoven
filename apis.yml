@@ -135,6 +135,8 @@ apis:
   - type: BlogPost
     url: https://www.beatoven.ai/blog/introducing-beatoven-ai-sdk/
 common:
+  - type: IssueTracker
+    url: https://github.com/Beatoven/public-api/issues
   - type: AgenticAccess
     url: agentic-access/beatoven-agentic-access.yml
   - type: DomainSecurity
