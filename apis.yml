@@ -46,7 +46,7 @@ tags:
   - India
 created: '2026-05-24'
 modified: '2026-05-24'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
 - aid: beatoven:beatoven-tasks-api
   name: Beatoven.ai Tasks API
