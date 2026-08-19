@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Beatoven Composition Tasks Tracks API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tracks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Compose A Track From A Prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://public-api.beatoven.ai/api/v1/tracks/compose",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start an asynchronous track composition from a text prompt. Returns a task_id that can be polled at /api/v1/tasks/{task_id} until the track is composed.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
