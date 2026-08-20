@@ -30,6 +30,20 @@ position: Provider
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/beatoven.png
 tags:
+  - Artificial Intelligence
+  - Music
+  - Music Generation
+  - Generative Audio
+  - Text-to-Music
+  - Text To SFX
+  - Royalty-Free Music
+  - Background Music
+  - Video Creators
+  - Podcasts
+  - Stems
+  - Fairly Trained
+  - India
+tags_raw:
   - AI
   - Artificial Intelligence
   - Music
@@ -54,6 +68,8 @@ apis:
   humanURL: https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md
   baseURL: https://public-api.beatoven.ai
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
