@@ -2,10 +2,6 @@
   "repo": "beatoven",
   "feeds": [
     {
-      "source": "https://www.beatoven.ai/blog/feed/",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://apps.make.com/beatoven-ai",
       "feed_url": "https://apps.make.com/beatoven-ai",
       "title": "",
@@ -14,5 +10,5 @@
     }
   ],
   "post_count": 10,
-  "fetched": "2026-08-15T12:22:01Z"
+  "fetched": "2026-08-22T20:20:02Z"
 }
