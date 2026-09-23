@@ -1,9 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Beatoven Composition Tasks API
-  description: 'Public REST API for Beatoven.ai''s text-to-music generation. Submit a natural language prompt and receive an asynchronously composed track with downloadable master mix and individual stems (bass, chords, melody, percussion). The API is asynchronous: POST a composition request to receive a task_id, then poll the task endpoint until status is "composed".
-
-    '
+  description: 'Public REST API for Beatoven.ai''s text-to-music generation. Submit a natural language prompt and receive an asynchronously composed track with downloadable master mix and individual stems (bass, chords, melody, percussion). The API is asynchronous: POST a composition request to receive a task_id, then poll the task endpoint until status is "composed".'
   version: v1
   contact:
     name: Beatoven.ai Support
@@ -24,9 +22,7 @@ paths:
   /api/v1/tasks/{task_id}:
     get:
       summary: Get Composition Task Status
-      description: 'Retrieve the current status of an asynchronous composition task. While the task is queued the status is "composing", once execution begins it is "running", and once finished it is "composed" and the response includes URLs for the master track and individual stems.
-
-        '
+      description: Retrieve the current status of an asynchronous composition task. While the task is queued the status is "composing", once execution begins it is "running", and once finished it is "composed" and the response includes URLs for the master track and individual stems.
       operationId: getTaskStatus
       tags:
       - Tasks
@@ -85,6 +81,20 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
+    TaskStatus:
+      type: object
+      required:
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - composing
+          - running
+          - composed
+          description: composing = queued, running = in progress, composed = finished.
+        meta:
+          $ref: '#/components/schemas/TaskMeta'
     StemUrls:
       type: object
       properties:
@@ -100,25 +110,20 @@ components:
         percussion:
           type: string
           format: uri
-    TaskStatus:
-      type: object
-      required:
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - composing
-          - running
-          - composed
-          description: composing = queued, running = in progress, composed = finished.
-        meta:
-          $ref: '#/components/schemas/TaskMeta'
     Error:
       type: object
       properties:
         error:
           type: string
+    Prompt:
+      type: object
+      required:
+      - text
+      properties:
+        text:
+          type: string
+          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
+          example: 30 seconds peaceful lo-fi chill hop track
     TaskMeta:
       type: object
       properties:
@@ -136,15 +141,6 @@ components:
           description: Pre-signed URL to download the rendered master track.
         stems_url:
           $ref: '#/components/schemas/StemUrls'
-    Prompt:
-      type: object
-      required:
-      - text
-      properties:
-        text:
-          type: string
-          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
-          example: 30 seconds peaceful lo-fi chill hop track
   securitySchemes:
     BearerAuth:
       type: http
