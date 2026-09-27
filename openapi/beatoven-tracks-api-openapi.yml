@@ -59,37 +59,7 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  responses:
-    ServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid Bearer API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Invalid request body or parameters.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    ComposeResponse:
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - started
-          description: Indicates the composition task has been accepted.
-        task_id:
-          type: string
-          description: Identifier used to poll composition progress.
     ComposeRequest:
       type: object
       required:
@@ -109,11 +79,6 @@ components:
           type: boolean
           default: false
           description: Set true to bias the composition toward loopable structure.
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
     Prompt:
       type: object
       required:
@@ -123,6 +88,41 @@ components:
           type: string
           description: Natural language prompt describing the desired track (genre, mood, length, instruments).
           example: 30 seconds peaceful lo-fi chill hop track
+    ComposeResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - started
+          description: Indicates the composition task has been accepted.
+        task_id:
+          type: string
+          description: Identifier used to poll composition progress.
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+  responses:
+    Unauthorized:
+      description: Missing or invalid Bearer API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Invalid request body or parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     BearerAuth:
       type: http

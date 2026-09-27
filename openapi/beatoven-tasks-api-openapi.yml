@@ -67,20 +67,16 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  responses:
-    ServerError:
-      description: Internal server error.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid Bearer API token.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Prompt:
+      type: object
+      required:
+      - text
+      properties:
+        text:
+          type: string
+          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
+          example: 30 seconds peaceful lo-fi chill hop track
     TaskStatus:
       type: object
       required:
@@ -95,6 +91,23 @@ components:
           description: composing = queued, running = in progress, composed = finished.
         meta:
           $ref: '#/components/schemas/TaskMeta'
+    TaskMeta:
+      type: object
+      properties:
+        project_id:
+          type: string
+        track_id:
+          type: string
+        prompt:
+          $ref: '#/components/schemas/Prompt'
+        version:
+          type: integer
+        track_url:
+          type: string
+          format: uri
+          description: Pre-signed URL to download the rendered master track.
+        stems_url:
+          $ref: '#/components/schemas/StemUrls'
     StemUrls:
       type: object
       properties:
@@ -115,32 +128,19 @@ components:
       properties:
         error:
           type: string
-    Prompt:
-      type: object
-      required:
-      - text
-      properties:
-        text:
-          type: string
-          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
-          example: 30 seconds peaceful lo-fi chill hop track
-    TaskMeta:
-      type: object
-      properties:
-        project_id:
-          type: string
-        track_id:
-          type: string
-        prompt:
-          $ref: '#/components/schemas/Prompt'
-        version:
-          type: integer
-        track_url:
-          type: string
-          format: uri
-          description: Pre-signed URL to download the rendered master track.
-        stems_url:
-          $ref: '#/components/schemas/StemUrls'
+  responses:
+    Unauthorized:
+      description: Missing or invalid Bearer API token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     BearerAuth:
       type: http
