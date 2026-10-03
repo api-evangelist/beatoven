@@ -68,6 +68,21 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
+    StemUrls:
+      type: object
+      properties:
+        bass:
+          type: string
+          format: uri
+        chords:
+          type: string
+          format: uri
+        melody:
+          type: string
+          format: uri
+        percussion:
+          type: string
+          format: uri
     Prompt:
       type: object
       required:
@@ -91,6 +106,11 @@ components:
           description: composing = queued, running = in progress, composed = finished.
         meta:
           $ref: '#/components/schemas/TaskMeta'
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
     TaskMeta:
       type: object
       properties:
@@ -108,26 +128,6 @@ components:
           description: Pre-signed URL to download the rendered master track.
         stems_url:
           $ref: '#/components/schemas/StemUrls'
-    StemUrls:
-      type: object
-      properties:
-        bass:
-          type: string
-          format: uri
-        chords:
-          type: string
-          format: uri
-        melody:
-          type: string
-          format: uri
-        percussion:
-          type: string
-          format: uri
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
   responses:
     Unauthorized:
       description: Missing or invalid Bearer API token.
