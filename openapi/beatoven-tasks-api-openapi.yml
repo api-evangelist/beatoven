@@ -68,30 +68,6 @@ paths:
           $ref: '#/components/responses/ServerError'
 components:
   schemas:
-    StemUrls:
-      type: object
-      properties:
-        bass:
-          type: string
-          format: uri
-        chords:
-          type: string
-          format: uri
-        melody:
-          type: string
-          format: uri
-        percussion:
-          type: string
-          format: uri
-    Prompt:
-      type: object
-      required:
-      - text
-      properties:
-        text:
-          type: string
-          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
-          example: 30 seconds peaceful lo-fi chill hop track
     TaskStatus:
       type: object
       required:
@@ -128,6 +104,30 @@ components:
           description: Pre-signed URL to download the rendered master track.
         stems_url:
           $ref: '#/components/schemas/StemUrls'
+    Prompt:
+      type: object
+      required:
+      - text
+      properties:
+        text:
+          type: string
+          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
+          example: 30 seconds peaceful lo-fi chill hop track
+    StemUrls:
+      type: object
+      properties:
+        bass:
+          type: string
+          format: uri
+        chords:
+          type: string
+          format: uri
+        melody:
+          type: string
+          format: uri
+        percussion:
+          type: string
+          format: uri
   responses:
     Unauthorized:
       description: Missing or invalid Bearer API token.
