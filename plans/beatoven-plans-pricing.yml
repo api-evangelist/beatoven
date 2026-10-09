@@ -1,3 +1,8 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (dated 2026-05-24 by the file itself), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
+generated: '2026-05-24'
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
@@ -171,3 +176,60 @@ plans:
       - Maestro SFX API
       - Stems delivery (bass, chords, melody, percussion)
       - Make.com integration
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - metered
+  - negotiated
+  - subscription
+  units:
+  - compute
+  - negotiated
+  - seat
+  plans:
+  - name: Trial
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Creator
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    - seat
+    periods:
+    - month
+    - year
+  - name: Visionary
+    access: other
+    model: subscription
+    model_how: stated
+    units:
+    - compute
+    - seat
+    periods:
+    - month
+    - year
+  - name: Pay-as-You-Go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Public API
+    access: enterprise
+    model: negotiated
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
