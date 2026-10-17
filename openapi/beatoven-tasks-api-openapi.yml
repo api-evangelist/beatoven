@@ -82,11 +82,35 @@ components:
           description: composing = queued, running = in progress, composed = finished.
         meta:
           $ref: '#/components/schemas/TaskMeta'
+    StemUrls:
+      type: object
+      properties:
+        bass:
+          type: string
+          format: uri
+        chords:
+          type: string
+          format: uri
+        melody:
+          type: string
+          format: uri
+        percussion:
+          type: string
+          format: uri
     Error:
       type: object
       properties:
         error:
           type: string
+    Prompt:
+      type: object
+      required:
+      - text
+      properties:
+        text:
+          type: string
+          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
+          example: 30 seconds peaceful lo-fi chill hop track
     TaskMeta:
       type: object
       properties:
@@ -104,30 +128,6 @@ components:
           description: Pre-signed URL to download the rendered master track.
         stems_url:
           $ref: '#/components/schemas/StemUrls'
-    Prompt:
-      type: object
-      required:
-      - text
-      properties:
-        text:
-          type: string
-          description: Natural language prompt describing the desired track (genre, mood, length, instruments).
-          example: 30 seconds peaceful lo-fi chill hop track
-    StemUrls:
-      type: object
-      properties:
-        bass:
-          type: string
-          format: uri
-        chords:
-          type: string
-          format: uri
-        melody:
-          type: string
-          format: uri
-        percussion:
-          type: string
-          format: uri
   responses:
     Unauthorized:
       description: Missing or invalid Bearer API token.
