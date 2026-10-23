@@ -168,6 +168,8 @@ apis:
   - type: BlogPost
     url: https://www.beatoven.ai/blog/introducing-beatoven-ai-sdk/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/beatovenai/overview
   - type: Website
     url: https://www.beatoven.ai/
   - type: IssueTracker
