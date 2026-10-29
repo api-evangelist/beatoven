@@ -1,4 +1,4 @@
-# Beatoven.ai (beatoven)
+# Beatoven.ai
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,102 +66,158 @@
 
 Beatoven.ai is an Indian generative-music startup (Bengaluru, founded 2021) building text-to-music and text-to-sound-effects models for video creators, podcasters, game developers, and brands. Its Maestro Music and Maestro SFX models render royalty-free background tracks and foley from natural-language prompts, with downloads delivered as mp3, aac, or wav plus separately rendered stems (bass, chords, melody, percussion). Beatoven is Fairly Trained certified - musicians whose work appears in the training corpus receive equitable compensation. The company exposes a public REST Composition API (public-api.beatoven.ai) plus an open-source Python SDK (github.com/Beatoven/public-api), a Make.com integration, and a self-serve API dashboard. The company has raised an ~$1.3M pre-Series A led by Capital 2B and IvyCap Ventures, claims 2M+ creators and 15M+ tracks generated, and reports 96% of its revenue from international markets.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/beatoven/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/beatoven/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Music · Music Generation · Generative Audio · Text-to-Music · Text To SFX · Royalty-Free Music · Background Music · Video Creators · Podcasts · Stems · Fairly Trained
 
-## Scope
+## Beatoven.ai on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Beatoven.ai is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/beatoven/](https://apis.io/providers/beatoven/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- AI
-- Artificial Intelligence
-- Music
-- Music Generation
-- Generative Audio
-- Text To Music
-- Text To SFX
-- Royalty-Free Music
-- Background Music
-- Video Creators
-- Podcasts
-- Stems
-- Fairly Trained
-- India
+- [Beatoven.ai Tasks API](https://apis.io/apis/beatoven/beatoven-tasks-api/) — Poll asynchronous composition task status and retrieve generated assets.
+- [Beatoven.ai Tracks API](https://apis.io/apis/beatoven/beatoven-tracks-api/) — Compose new tracks from natural language prompts.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Beatoven Composition API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Asynchronous REST API for composing tracks from natural-language prompts. POST a prompt to /api/v1/tracks/compose to receive a task_id, then poll GET /api/v1/tasks/{task_id} until status is "composed". The completed response includes a download URL for the master mix and separate URLs for the bass, chords, melody, and percussion stems. Supports mp3, aac, and wav output and an optional looping flag for loopable structure. Authentication is HTTP Bearer with an API key issued via sync.beatoven.ai/apiDashboard or by emailing hello@beatoven.ai.
+- [Beatoven Agentic Access](https://apis.io/agentic-access/beatoven/beatoven-agentic-access/)
 
-- **Human URL:** [https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md](https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md)
-- **Base URL:** `https://public-api.beatoven.ai`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Music
-- Composition
-- Tracks
-- Stems
-- Text To Music
+- [Beatoven Compose Request](https://apis.io/schemas/beatoven/beatoven-compose-request/)
+- [Beatoven Track](https://apis.io/schemas/beatoven/beatoven-track/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://github.com/Beatoven/public-api/blob/main/docs/api-spec.md)
-- [Documentation](https://github.com/Beatoven/public-api/blob/main/docs/api-spec-old.md)
+Linked-data contexts for the provider's vocabulary.
+
+- [Beatoven Context](https://apis.io/jsonld/beatoven/beatoven-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Beatoven Vocabulary](https://apis.io/vocabularies/beatoven/beatoven-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Beatoven Compose Request Example](https://apis.io/examples/beatoven/beatoven-compose-request-example/)
+- [Beatoven Compose Response Example](https://apis.io/examples/beatoven/beatoven-compose-response-example/)
+- [Beatoven Task Status Response Example](https://apis.io/examples/beatoven/beatoven-task-status-response-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Beatoven Composition API](https://apis.io/collections/beatoven/open-beatoven-composition-api/)
+- [Beatoven Composition Tasks API](https://apis.io/collections/beatoven/open-beatoven-tasks-api/)
+- [Beatoven Composition Tasks Tracks API](https://apis.io/collections/beatoven/open-beatoven-tracks-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Beatoven.ai — composition rules](https://apis.io/rules/beatoven/beatoven-composition-rules/)
+- [Beatoven.ai — jsonschema rules](https://apis.io/rules/beatoven/beatoven-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Beatoven Authentication](https://apis.io/security/beatoven/beatoven-authentication/)
+- [Beatoven Domain Security](https://apis.io/security/beatoven/beatoven-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Beatoven Plans Pricing](https://apis.io/plans/beatoven/beatoven-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Beatoven Rate Limits](https://apis.io/rate-limits/beatoven/beatoven-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Beatoven Finops](https://apis.io/finops/beatoven/beatoven-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.beatoven.ai/)
 - [Documentation](https://www.beatoven.ai/api)
-- [OpenAPI](openapi/beatoven-composition-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/beatoven-composition-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/beatoven-composition-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/beatoven-track-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/beatoven-compose-request-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/beatoven-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](rules/beatoven-composition-rules.yml)
-- [Examples](examples/beatoven-compose-request-example.json)
-- [Examples](examples/beatoven-compose-response-example.json)
-- [Examples](examples/beatoven-task-status-response-example.json)
-- [Source Code](https://github.com/Beatoven/public-api)
-- [SDK](https://github.com/Beatoven/public-api/tree/main/sdk)
-- [Code Examples](https://github.com/Beatoven/public-api/blob/main/examples/compose.py)
-- [Integration](https://apps.make.com/beatoven-ai)
-- [Blog Post](https://www.beatoven.ai/blog/beatoven-ai-is-now-live-on-make-com-here-is-how-to-use-our-api/)
-- [Blog Post](https://www.beatoven.ai/blog/introducing-beatoven-ai-sdk/)
-
-## Common Properties
-
-- [Portal](https://www.beatoven.ai)
-- [Documentation](https://www.beatoven.ai/api)
-- [Documentation](https://github.com/Beatoven/public-api)
-- [Getting Started](https://sync.beatoven.ai/apiDashboard)
-- [Sign Up](https://sync.beatoven.ai/)
-- [Sign Up](https://sync.beatoven.ai/apiDashboard)
-- [GitHub Organization](https://github.com/Beatoven)
-- [SDK](https://github.com/Beatoven/public-api/tree/main/sdk)
-- [Code Examples](https://github.com/Beatoven/public-api/tree/main/examples)
-- [Integration](https://apps.make.com/beatoven-ai)
-- [Blog](https://www.beatoven.ai/blog)
+- [Getting started](https://sync.beatoven.ai/apiDashboard)
 - [Pricing](https://www.beatoven.ai/pricing)
-- [Plans](plans/beatoven-plans-pricing.yml)
-- [Rate Limits](rate-limits/beatoven-rate-limits.yml)
-- [Fin Ops](finops/beatoven-finops.yml)
-- [Artists](https://www.beatoven.ai/artists)
-- [Terms of Service](https://www.beatoven.ai/tos)
-- [Privacy Policy](https://www.beatoven.ai/privacy)
-- [Support](mailto:hello@beatoven.ai)
-- [LinkedIn](https://www.linkedin.com/company/beatoven-ai)
-- [Twitter](https://twitter.com/beatoven_ai)
-- [Features](undefined)
+- [Blog](https://www.beatoven.ai/blog)
+- [Terms of service](https://www.beatoven.ai/tos)
+- [Privacy policy](https://www.beatoven.ai/privacy)
+- [GitHub](https://github.com/Beatoven)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 44.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 64.0 |
+| Contract governance | 13.6 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 50.0 |
+| Access clarity | 50.0 |
+
+**Agent readiness 22.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/beatoven/](https://apis.io/providers/beatoven/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Beatoven.ai: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/beatoven/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
